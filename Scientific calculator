@@ -1,0 +1,114 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Function to calculate factorial
+int factorial(int n) {
+    if(n < 0)
+        return -1;
+    int fact = 1;
+    for(int i = 1; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+int main() {
+    int choice;
+    double a, b, result;
+
+    do {
+        cout << "\n===== Scientific Calculator =====\n";
+        cout << "1. Addition\n";
+        cout << "2. Subtraction\n";
+        cout << "3. Division\n";
+        cout << "4. Average\n";
+        cout << "5. Square Root\n";
+        cout << "6. Square\n";
+        cout << "7. Cube\n";
+        cout << "8. Factorial\n";
+        cout << "9. Logarithm (base 10)\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch(choice) {
+            case 1:
+                cout << "Enter two numbers: ";
+                cin >> a >> b;
+                cout << "Result = " << a + b << endl;
+                break;
+
+            case 2:
+                cout << "Enter two numbers: ";
+                cin >> a >> b;
+                cout << "Result = " << a - b << endl;
+                break;
+
+            case 3:
+                cout << "Enter two numbers: ";
+                cin >> a >> b;
+                if(b != 0)
+                    cout << "Result = " << a / b << endl;
+                else
+                    cout << "Division by zero error!\n";
+                break;
+
+            case 4:
+                cout << "Enter two numbers: ";
+                cin >> a >> b;
+                cout << "Average = " << (a + b) / 2 << endl;
+                break;
+
+            case 5:
+                cout << "Enter a number: ";
+                cin >> a;
+                if(a >= 0)
+                    cout << "Square Root = " << sqrt(a) << endl;
+                else
+                    cout << "Invalid input!\n";
+                break;
+
+            case 6:
+                cout << "Enter a number: ";
+                cin >> a;
+                cout << "Square = " << a * a << endl;
+                break;
+
+            case 7:
+                cout << "Enter a number: ";
+                cin >> a;
+                cout << "Cube = " << a * a * a << endl;
+                break;
+
+            case 8:
+                int n;
+                cout << "Enter an integer: ";
+                cin >> n;
+                if(factorial(n) != -1)
+                    cout << "Factorial = " << factorial(n) << endl;
+                else
+                    cout << "Invalid input!\n";
+                break;
+
+            case 9:
+                cout << "Enter a number: ";
+                cin >> a;
+                if(a > 0)
+                    cout << "Log10 = " << log10(a) << endl;
+                else
+                    cout << "Invalid input!\n";
+                break;
+
+            case 0:
+                cout << "Exiting...\n";
+                break;
+
+            default:
+                cout << "Invalid choice!\n";
+        }
+
+    } while(choice != 0);
+
+    return 0;
+}
